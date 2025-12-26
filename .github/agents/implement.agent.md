@@ -14,7 +14,7 @@ tools:
 model: Claude Sonnet 4
 handoffs:
   - label: Review Changes
-    agent: review
+    agent: Review
     prompt: Review the implementation above against the plan and check for any issues.
     send: false
 ---

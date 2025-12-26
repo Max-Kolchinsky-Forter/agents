@@ -5,7 +5,7 @@ tools: ["codebase", "search", "fetch", "githubRepo", "usages", "problems"]
 model: Claude Sonnet 4
 handoffs:
   - label: Start Implementation
-    agent: implement
+    agent: Implement
     prompt: Implement the plan outlined above.
     send: false
 ---

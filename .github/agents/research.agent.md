@@ -14,7 +14,7 @@ tools:
 model: Claude Sonnet 4
 handoffs:
   - label: Create Plan
-    agent: plan
+    agent: Plan
     prompt: Based on the research above, create a detailed implementation plan.
     send: false
 ---
