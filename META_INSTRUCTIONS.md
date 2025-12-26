@@ -1,0 +1,1 @@
+Read the [instructions file](./ROOT_INSTRUCTIONS.md) FULLY and DEEPLY, and propose ways to improve it, using prompt engineering techniques where applicable. I want it to be a VERY high quality prompt that will evolve over time, and I want it to be PERFECT.
