@@ -59,7 +59,7 @@ The work was structured in phases with clear deliverables:
 
 - Identify patterns across frameworks → [prevailing-wisdom.md](../synthesis/prevailing-wisdom.md)
 - Document conflicts and resolutions → [framework-comparison.md](../synthesis/framework-comparison.md)
-- Pre-design agent modes → [agent-modes-design.md](../synthesis/agent-modes-design.md)
+- Pre-design agent modes (completed and implemented in `.github/agents/`)
 
 ### Phase 3: Generation
 
@@ -281,5 +281,6 @@ description: > # Required: max 1024 chars, include trigger keywords
 
 - [Prevailing Wisdom](../synthesis/prevailing-wisdom.md) - Core principles synthesized
 - [Framework Comparison](../synthesis/framework-comparison.md) - Comparison matrix
-- [Agent Skills Research](../synthesis/agent-skills-research.md) - Skills standard research
 - [Source Material](./SOURCE_MATERIAL.md) - Original research sources
+
+Note: Agent modes design and skills research have been completed and implemented in `.github/agents/` and `.github/skills/`.

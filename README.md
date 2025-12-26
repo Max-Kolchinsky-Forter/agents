@@ -144,7 +144,7 @@ tests/                    # Validation and testing
 docs/
 ├── synthesis/            # Framework design principles
 │   ├── prevailing-wisdom.md
-│   └── agent-skills-research.md
+│   └── framework-comparison.md
 ├── sources/              # Reference materials used to build this
 └── meta/                 # Historical build prompts
 ```
@@ -153,20 +153,94 @@ docs/
 
 ### Custom Agent
 
-1. Create `.github/agents/my-agent.agent.md`
-2. Add frontmatter with `name`, `description`, `tools`, and optional `handoffs`
-3. Run `./install.sh`
+Create a new agent file:
+
+```
+.github/agents/my-agent.agent.md
+```
+
+With this structure:
+
+```yaml
+---
+name: My Agent
+description: What this agent does and when to use it.
+tools: ["codebase", "search", "editFiles"] # Available tools
+model: Claude Sonnet 4 # Optional: specific model
+handoffs: # Optional: workflow transitions
+  - label: Next Step
+    agent: other-agent
+    prompt: Continue with the next phase.
+    send: false
+---
+# My Agent Instructions
+
+Your detailed instructions here.
+```
+
+Run `./install.sh` to create symlinks.
 
 ### Agent Skill
 
-1. Create `.github/skills/my-skill/SKILL.md`
-2. Add frontmatter with `name` and `description` (include trigger keywords)
-3. Run `./install.sh`
+Create a new skill directory:
 
-See [AGENTS.md](./AGENTS.md) for detailed formats.
+```
+.github/skills/my-skill/
+└── SKILL.md
+```
+
+With this structure:
+
+```yaml
+---
+name: my-skill
+description: >
+  What this skill does. Include trigger keywords for auto-activation.
+  Triggers: "keyword1", "keyword2", "when to use this".
+---
+# My Skill Instructions
+
+Your detailed instructions here (< 500 lines recommended).
+```
+
+Run `./install.sh` to create symlinks.
+
+## Agents vs Skills: When to Use Which
+
+| Use Case                           | Use       |
+| ---------------------------------- | --------- |
+| Need enforced tool restrictions    | **Agent** |
+| Need handoffs between phases       | **Agent** |
+| Want auto-activation from prompts  | **Skill** |
+| Cross-platform (CLI, coding agent) | **Skill** |
+| Role-based workflow phases         | **Agent** |
+| Specialized methodologies          | **Skill** |
+
+## Troubleshooting
+
+**Agents not appearing in other repos:**
+
+Custom agents must be linked per-workspace. Run from your project directory:
+
+```bash
+/path/to/agents/install.sh link
+```
+
+**Skills not auto-activating:**
+
+1. Run `./install.sh` to ensure symlinks exist
+2. Check `~/.github/skills/` for your skills
+3. Be more explicit: "Use research mode to explore..."
+
+**Need to uninstall:**
+
+```bash
+./install.sh uninstall           # Remove global skills
+./install.sh unlink              # Remove agents from current workspace
+```
 
 ## Further Reading
 
-- **[AGENTS.md](./AGENTS.md)** - Detailed usage and customization
-- **[docs/synthesis/prevailing-wisdom.md](./docs/synthesis/prevailing-wisdom.md)** - Core principles
-- **[docs/synthesis/agent-skills-research.md](./docs/synthesis/agent-skills-research.md)** - Skills standard
+- **[docs/synthesis/prevailing-wisdom.md](./docs/synthesis/prevailing-wisdom.md)** - Core principles and design patterns
+- **[docs/synthesis/framework-comparison.md](./docs/synthesis/framework-comparison.md)** - Analysis of source frameworks
+- **[docs/sources/12-factor-agents/](./docs/sources/12-factor-agents/)** - 12 Factor Agents principles
