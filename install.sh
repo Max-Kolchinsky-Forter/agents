@@ -20,9 +20,6 @@ SCRIPT_DIR="${0:A:h}"
 SKILLS_TARGET_DIR="$HOME/.github/skills"
 CLAUDE_SKILLS_TARGET_DIR="$HOME/.claude/skills"
 
-# Legacy prompts directory - used for cleanup only, no longer installed to
-LEGACY_PROMPTS_DIR="$HOME/Library/Application Support/Code/User/prompts"
-
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -139,40 +136,6 @@ uninstall() {
             rm "$CLAUDE_SKILLS_TARGET_DIR"
             success "Removed: Claude Code compatibility symlink"
         fi
-    fi
-    
-    # Clean up legacy symlinks from old prompts directory
-    # These were installed by older versions of this script
-    if [[ -d "$LEGACY_PROMPTS_DIR" ]]; then
-        info "Cleaning up legacy symlinks from VSCode prompts directory..."
-        
-        # Remove instruction symlinks that point to this repo
-        for src in "$SCRIPT_DIR"/instructions/*.instructions.md; do
-            [[ -e "$src" ]] || continue
-            local name=$(basename "$src")
-            local dest="$LEGACY_PROMPTS_DIR/$name"
-            
-            if [[ -L "$dest" ]]; then
-                local current_target=$(readlink "$dest")
-                if [[ "$current_target" == "$src" ]]; then
-                    rm "$dest"
-                    success "Removed legacy: $name"
-                    count=$((count + 1))
-                fi
-            fi
-        done
-        
-        # Remove legacy agent symlinks (these file patterns were used previously)
-        for pattern in "research.agent.md" "plan.agent.md" "implement.agent.md" "review.agent.md" \
-                       "debug.agent.md" "tech-debt.agent.md" "architecture.agent.md" \
-                       "mentor.agent.md" "janitor.agent.md" "critic.agent.md"; do
-            local dest="$LEGACY_PROMPTS_DIR/$pattern"
-            if [[ -L "$dest" ]]; then
-                rm "$dest"
-                success "Removed legacy: $pattern"
-                count=$((count + 1))
-            fi
-        done
     fi
     
     echo ""
