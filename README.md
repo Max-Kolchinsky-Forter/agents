@@ -5,8 +5,31 @@
 ## Quick Start
 
 ```bash
-./install.sh            # Install agents and skills
-./install.sh uninstall  # Uninstall
+# One-time setup (skills work globally)
+./install.sh
+
+# Per-workspace (run from your project directory)
+cd ~/code/my-project
+/path/to/agents/install.sh link
+```
+
+## Per-Workspace Agent Linking
+
+Custom agents must be linked into each workspace because VS Code only detects agents in `.github/agents/` within the workspace.
+
+```bash
+# Link agents to current workspace
+cd ~/code/my-project
+/path/to/agents/install.sh link
+
+# Remove agent symlinks
+/path/to/agents/install.sh unlink
+```
+
+**Tip**: Add an alias for convenience:
+
+```bash
+echo 'alias agents-link="/path/to/agents/install.sh link"' >> ~/.zshrc
 ```
 
 ## The Core Workflow (Custom Agents)

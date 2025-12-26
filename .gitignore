@@ -205,7 +205,5 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
-# Marimo
-marimo/_static/
-marimo/_lsp/
-__marimo__/
+# Force include GitHub Agents directory since we're ignoring it globally
+!.github/agents/

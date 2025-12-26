@@ -163,6 +163,14 @@ Run `./install.sh` to create symlinks.
 
 ## Troubleshooting
 
+**Agents not appearing in other repos:**
+
+Custom agents must be linked per-workspace. Run from your project directory:
+
+```bash
+/path/to/agents/install.sh link
+```
+
 **Skills not auto-activating:**
 
 1. Run `./install.sh` to ensure symlinks exist
@@ -172,7 +180,8 @@ Run `./install.sh` to create symlinks.
 **Need to uninstall:**
 
 ```bash
-./install.sh uninstall
+./install.sh uninstall           # Remove global skills
+./install.sh unlink              # Remove agents from current workspace
 ```
 
 ## See Also
