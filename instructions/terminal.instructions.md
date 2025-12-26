@@ -21,29 +21,14 @@ applyTo: "**"
 
 - Pipe output to `cat` to avoid interactive mode: `gh run view | cat`
 - Use `gh api` for raw content from other repos
-- Default organization: `forter` (when not specified)
 
 ```zsh
 # Fetch file from another repo
-gh api repos/forter/other-repo/contents/path/to/file \
+gh api repos/owner/repo/contents/path/to/file \
   -H "Accept: application/vnd.github.raw" > /tmp/file.txt
 
 # View workflow run non-interactively
 gh run view 12345 | cat
-```
-
-## Vault
-
-- Use `forter vault get-secret <path>` for secrets
-- Store secrets in environment variables
-- Never print secrets to terminal output
-
-```zsh
-# Good
-export API_KEY=$(forter vault get-secret path/to/secret)
-
-# Bad - prints secret
-echo $(forter vault get-secret path/to/secret)
 ```
 
 ## Command Chaining

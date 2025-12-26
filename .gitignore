@@ -3,6 +3,10 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Local/personal instruction files (not part of shared repo)
+*.local.md
+*.local.instructions.md
+
 # C extensions
 *.so
 
