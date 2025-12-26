@@ -11,7 +11,7 @@ tools:
     "problems",
     "usages",
   ]
-model: Claude Sonnet 4
+model: Claude Sonnet 4.5
 handoffs:
   - label: Review Changes
     agent: Review

@@ -2,7 +2,7 @@
 name: Plan
 description: Create detailed implementation plans with read-only access. Use for planning features, designing solutions, creating technical specifications, or preparing for implementation.
 tools: ["codebase", "search", "fetch", "githubRepo", "usages", "problems"]
-model: Claude Sonnet 4
+model: Claude Opus 4.5
 handoffs:
   - label: Start Implementation
     agent: Implement

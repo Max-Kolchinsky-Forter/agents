@@ -11,7 +11,7 @@ tools:
     "problems",
     "findTestFiles",
   ]
-model: Claude Sonnet 4
+model: Claude Opus 4.5
 handoffs:
   - label: Create Plan
     agent: Plan

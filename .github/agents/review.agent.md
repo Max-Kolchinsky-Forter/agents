@@ -2,7 +2,7 @@
 name: Review
 description: Verify implementation quality with read and test access. Use for reviewing changes, checking code quality, verifying implementations, or auditing work before merge.
 tools: ["codebase", "search", "runTests", "problems", "usages", "changes"]
-model: Claude Sonnet 4
+model: Claude Sonnet 4.5
 handoffs: []
 ---
 
