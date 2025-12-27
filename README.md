@@ -69,13 +69,15 @@ Use these advisory markers in code comments. Skills will respect them:
 ## Instructions (File-Type Standards)
 
 The `instructions/` folder contains file-type specific coding standards.
-To enable globally, add to your `~/.zshrc`:
+These are automatically installed to the VS Code prompts folder by `./install.sh`.
 
-```bash
-export COPILOT_CUSTOM_INSTRUCTIONS_DIRS="/path/to/agents/instructions"
-```
-
-Or copy individual files to your project's `.github/instructions/` folder.
+| File | Applies To | Purpose |
+|------|------------|---------|
+| global.instructions.md | All files | Core principles, inviolable rules |
+| terminal.instructions.md | All files | Shell/CLI patterns |
+| python.instructions.md | `*.py` | Python coding standards |
+| typescript.instructions.md | `*.ts, *.tsx` | TypeScript/React standards |
+| testing.instructions.md | `*test*, *spec*` | Testing philosophy and patterns |
 
 ## Testing
 
@@ -102,6 +104,7 @@ After running `./install.sh`:
 | Agents (VS Code)     | `~/Library/Application Support/Code/User/prompts/`    |
 | Agents (Claude Code) | `~/.claude/agents/`                                   |
 | Skills               | `~/.github/skills/` (with `~/.claude/skills` symlink) |
+| Instructions         | `~/Library/Application Support/Code/User/prompts/`    |
 
 ## File Structure
 
