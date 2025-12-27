@@ -3,7 +3,19 @@ name: Review
 description: Verify implementation quality with read and test access. Use for reviewing changes, checking code quality, verifying implementations, or auditing work before merge.
 tools: ["codebase", "search", "runTests", "problems", "usages", "changes"]
 model: Claude Sonnet 4.5
-handoffs: []
+handoffs:
+  - label: Commit Changes
+    agent: Commit
+    prompt: The review passed. Create semantic commits for the approved changes above.
+    send: false
+  - label: Fix Issues
+    agent: Implement
+    prompt: Address the issues found in the review above and update the implementation.
+    send: false
+  - label: Re-Plan
+    agent: Plan
+    prompt: The implementation has fundamental issues. Review the findings above and create a revised plan.
+    send: false
 ---
 
 # Review Mode
@@ -233,12 +245,33 @@ Flag for human review when:
 
 ## Review Complete!
 
-After review is complete:
+After review is complete, use the appropriate handoff:
 
-**If PASS**: Ready to commit and merge! 🎉
+### Status: PASS ✅
 
-**If NEEDS_WORK**: Address the issues listed above, then request another review.
+**→ Commit Changes**: Use the "Commit Changes" handoff button above to create semantic commits for the approved changes.
 
-**If FAIL**: Consider whether to fix or revert. May need to revisit the plan.
+### Status: NEEDS_WORK ⚠️
 
-This completes the workflow: Research → Plan → Implement → **Review** → ✅ Done
+**→ Fix Issues**: Use the "Fix Issues" handoff button to return to Implement mode and address the findings.
+
+**Iteration tracking**: Keep track of review cycles. After **3 review iterations**, consider whether to:
+
+- Escalate to Re-Plan if the approach is fundamentally flawed
+- Request human review for architectural guidance
+- Break the work into smaller phases
+
+### Status: FAIL ❌
+
+**→ Re-Plan**: Use the "Re-Plan" handoff button when:
+
+- The implementation approach is fundamentally wrong
+- Scope has grown beyond the original plan
+- Multiple review cycles haven't resolved core issues
+- Architecture needs rethinking
+
+---
+
+This workflow: Research → Plan → Implement → **Review** → Commit → ✅ Done
+
+Or iterate: **Review** ↔️ Implement (max 3 cycles) → Re-Plan if needed
