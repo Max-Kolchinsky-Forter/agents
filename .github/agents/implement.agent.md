@@ -3,13 +3,13 @@ name: Implement
 description: Execute implementation plans with full code access. Use for implementing planned features, executing technical plans, building what was designed, or making planned changes.
 tools:
   [
-    "codebase",
+    "execute/runInTerminal",
+    "execute/runTests",
+    "read/problems",
+    "read/readFile",
+    "edit/editFiles",
     "search",
-    "editFiles",
-    "runInTerminal",
-    "runTests",
-    "problems",
-    "usages",
+    "web",
   ]
 model: Claude Sonnet 4.5
 handoffs:
@@ -168,12 +168,54 @@ How should I proceed?
 
 For each change verify:
 
-- [ ] Tests added/updated and passing
+- [ ] **Tests added/updated and passing** (REQUIRED - see Testing Requirements below)
 - [ ] Type hints included
 - [ ] Error handling appropriate
 - [ ] No placeholder code (`TODO`, `pass`, `...`)
 - [ ] Follows existing patterns
 - [ ] No unnecessary changes to other code
+
+## Testing Requirements
+
+**Testing is mandatory for all implementations.** The level of coverage depends on project maturity:
+
+### Established Projects (Production Code)
+
+**Required:**
+
+- Unit tests for all new functions/methods
+- Integration tests for new features
+- Edge case coverage (null, empty, boundaries)
+- Error scenario tests
+- Minimum 80% coverage for new code
+
+### Mature Projects (Active Development)
+
+**Required:**
+
+- Unit tests for core logic
+- Happy path + critical error scenarios
+- Integration tests for user-facing features
+- Minimum 70% coverage for new code
+
+### Prototypes / Early Stage
+
+**Required:**
+
+- At least smoke tests for critical paths
+- Manual test scenarios documented
+- Can defer comprehensive coverage
+
+### When to Skip Tests
+
+**Only skip tests when:**
+
+- Explicitly building a throwaway prototype
+- Pure documentation changes
+- Configuration-only changes
+- User explicitly approves skipping
+
+**Always document why tests were skipped in the implementation.**
 
 ## When to STOP and Ask
 

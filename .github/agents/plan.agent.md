@@ -208,14 +208,42 @@ Please review and let me know:
 
 ## Testing Strategy
 
+**REQUIRED SECTION** - Specify testing approach based on project maturity:
+
+### Project Maturity Level
+
+[Established Production | Active Development | Prototype]
+
 ### Unit Tests
 
-- [What to test]
-- [Key edge cases]
+**Required:**
+
+- [Specific functions/methods to test]
+- [Key edge cases: null, empty, boundaries]
+- [Error scenarios]
+
+**Coverage target:** [80% for production | 70% for active dev | smoke tests for prototype]
 
 ### Integration Tests
 
+**Required:**
+
 - [End-to-end scenarios]
+- [Critical user paths]
+- [External service interactions]
+
+### Manual Testing
+
+- [ ] [Manual verification step 1]
+- [ ] [Manual verification step 2]
+
+### Test Skipping Justification
+
+If tests are being skipped, document:
+
+- **Why:** [Reason for skipping]
+- **Risk:** [What could go wrong]
+- **Mitigation:** [How risk is reduced]
 
 ---
 
