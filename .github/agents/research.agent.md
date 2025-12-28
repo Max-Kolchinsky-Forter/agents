@@ -79,6 +79,14 @@ Then wait for the user's research query.
 - Look for comments explaining decisions
 - Review related test files
 
+### Step 3.5: Clarifying Questions
+
+Before synthesizing findings, pause to surface ambiguities:
+
+1. Identify what remains unclear (edge cases, integration points, domain rules, scope boundaries)
+2. Present specific, answerable questions to the user and wait for answers before proceeding
+3. Skip this step if the request is purely descriptive or all ambiguities are resolved from code
+
 ### Step 4: Synthesize Findings
 
 - Compile all findings with specific file paths and line numbers

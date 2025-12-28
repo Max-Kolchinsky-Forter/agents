@@ -107,6 +107,19 @@ Review each changed file for:
 - [ ] No breaking changes to public APIs
 - [ ] Backwards compatibility maintained
 
+### Confidence Scoring
+
+Rate each potential issue on confidence (0-100):
+
+| Score  | Meaning                                                            |
+| ------ | ------------------------------------------------------------------ |
+| 90-100 | Certain: Confirmed bug/violation that will cause problems          |
+| 70-89  | High: Very likely a real issue based on code evidence              |
+| 50-69  | Medium: Possibly an issue; may be intentional or context-dependent |
+| 0-49   | Low: Uncertain; likely a false positive or style preference        |
+
+Only report issues with confidence **≥70%** in the Issues Found section. Place lower-confidence observations in a brief Notes section without required action.
+
 ### Step 5: Present Findings
 
 Use the Review Output Format below.
@@ -167,29 +180,27 @@ Would you like me to help fix these?
 
 ### Issues Found
 
-#### Critical 🔴
+#### Critical 🔴 (Confidence ≥90%)
 
 Must fix before proceeding:
 
-| Location     | Issue               | Fix                  |
-| ------------ | ------------------- | -------------------- |
-| `file.py:42` | Unhandled exception | Add try/except for X |
+| Location     | Issue               | Confidence | Fix                  |
+| ------------ | ------------------- | ---------- | -------------------- |
+| `file.py:42` | Unhandled exception | 95%        | Add try/except for X |
 
-#### Important 🟡
+#### Important 🟡 (Confidence 70-89%)
 
 Should fix:
 
-| Location     | Issue             | Suggestion               |
-| ------------ | ----------------- | ------------------------ |
-| `file.py:78` | Missing type hint | Add `-> str` return type |
+| Location     | Issue             | Confidence | Suggestion               |
+| ------------ | ----------------- | ---------- | ------------------------ |
+| `file.py:78` | Missing type hint | 75%        | Add `-> str` return type |
 
-#### Minor 🟢
+#### Notes (Confidence <70%)
 
-Nice to have:
+Observations that may not require action:
 
-| Location     | Issue     | Suggestion           |
-| ------------ | --------- | -------------------- |
-| `file.py:95` | Long line | Consider breaking up |
+- `file.py:95` - Long line; consider breaking up (50% - style preference)
 
 ### What's Good ✅
 

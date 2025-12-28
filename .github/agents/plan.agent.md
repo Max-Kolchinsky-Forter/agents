@@ -58,29 +58,36 @@ Questions I couldn't answer through code investigation:
 
 Only ask questions you genuinely cannot answer through code exploration.
 
-### Step 2: Research & Discovery
+### Step 2: Research & Present Design Options
 
 1. **Verify corrections**: If the user corrects a misunderstanding, research to verify
 2. **Deep dive into relevant areas**
-3. **Present findings and design options**:
+3. **Present 2-3 architecture approaches with trade-offs**:
 
 ```
-Based on my research:
+Based on my research, here are the design options:
 
-**Current State:**
-- [Key discovery about existing code]
-- [Pattern or convention to follow]
+**Approach 1: Minimal Changes** (fastest, lowest risk)
+- [What this approach does]
+- Pros: Minimal refactoring; low risk
+- Cons: [Trade-offs]
 
-**Design Options:**
-1. [Option A] - [pros/cons]
-2. [Option B] - [pros/cons]
+**Approach 2: Clean Architecture** (most maintainable)
+- [What this approach does]
+- Pros: Clean separation; highly testable; maintainable
+- Cons: More refactoring and files
 
-**Open Questions:**
-- [Technical uncertainty]
-- [Design decision needed]
+**Approach 3: Pragmatic Balance** (recommended by default)
+- [What this approach does]
+- Pros: Balanced speed and maintainability
+- Cons: [Trade-offs]
 
-Which approach aligns best with your vision?
+**My Recommendation**: Approach [N] because [specific reasoning based on codebase patterns and constraints].
+
+Which approach would you like to proceed with?
 ```
+
+4. **Wait for user choice** before moving to Step 3; skip multiple approaches only when the task is trivial or the user mandated a specific path
 
 ### Step 3: Plan Structure Development
 
