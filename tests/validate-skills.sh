@@ -103,10 +103,23 @@ for skill_dir in "$SKILLS_DIR"/*/; do
         warn "$skill_name: Missing unique 'use X mode' trigger"
     fi
     
-    # Check line count (warn if over 300)
+    # Check description starts with "Use when" (CSO pattern)
+    if ! grep -A1 "^description:" "$skill_file" | grep -qi "use when"; then
+        warn "$skill_name: Description should start with 'Use when' (focus on triggers, not workflow)"
+    fi
+    
+    # Check description length (extract description block, count chars)
+    desc_length=$(sed -n '/^description:/,/^---/p' "$skill_file" | grep -v '^---' | wc -c | tr -d ' ')
+    if [[ $desc_length -gt 500 ]]; then
+        warn "$skill_name: Description is $desc_length chars (recommended < 500)"
+    fi
+    
+    # Check line count (warn if over 500 - progressive disclosure)
     lines=$(wc -l < "$skill_file" | tr -d ' ')
-    if [[ $lines -gt 300 ]]; then
-        warn "$skill_name: $lines lines (recommended < 300)"
+    if [[ $lines -gt 500 ]]; then
+        warn "$skill_name: $lines lines (recommended < 500, use separate files for heavy reference)"
+    elif [[ $lines -gt 300 ]]; then
+        info "$skill_name: $lines lines (consider splitting if it grows further)"
     fi
     
     success "$skill_name: Valid ($lines lines)"
