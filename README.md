@@ -217,15 +217,30 @@ With this structure:
 ---
 name: my-skill
 description: >
-  What this skill does. Include trigger keywords for auto-activation.
-  Triggers: "keyword1", "keyword2", "when to use this".
+  Use when [specific symptoms/triggers]. Include keywords for auto-activation:
+  "keyword1", "keyword2", "when to use this".
+  Focus on WHEN to use (symptoms), not WHAT it does (workflow).
 ---
 # My Skill Instructions
 
 Your detailed instructions here (< 500 lines recommended).
+For heavy reference material (APIs, syntax guides), use separate files.
 ```
 
 Run `./install.sh` to create symlinks.
+
+**Skill Namespacing:** Personal skills at `~/.github/skills/` override framework skills with the same name, enabling local customization.
+
+### Validating Skills
+
+Before deploying a new skill, validate it works:
+
+1. **Baseline** - Run a representative task WITHOUT the skill, note failures or suboptimal behavior
+2. **With Skill** - Add the skill, run the same task, verify improvement
+3. **Edge Cases** - Test pressure scenarios (time constraints, competing priorities)
+4. **Iterate** - If the agent rationalizes around the skill, strengthen the guidance
+
+This is TDD for documentation—if you didn't see it fail without the skill, you don't know if the skill helps.
 
 ## Agents vs Skills: When to Use Which
 
