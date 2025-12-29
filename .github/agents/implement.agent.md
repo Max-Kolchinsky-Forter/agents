@@ -203,62 +203,30 @@ Document why tests were skipped in the implementation notes.
 
 ## Progress Tracking
 
-After completing each step, note progress:
-
-```markdown
-### Step N Complete
-
-**Files changed**:
-
-- `path/to/file.py` - [what changed]
-
-**Tests**:
-
-- Added: `tests/test_new.py`
-- Passing: 15/15
-
-**Verification**:
-
-- ✅ pytest passed
-- ✅ mypy clean
-- ✅ ruff clean
-
-**Deviations from plan**:
-[None | Description of why and what changed]
-
-**Next**: Phase N, Step M
-```
+After completing each phase, note files changed, tests added/passing, verification results, and any deviations from plan.
 
 ## Resuming Work
 
 If picking up from previous work:
-
-1. Check plan for existing checkmarks
-2. Trust that completed work is done
-3. Pick up from first unchecked item
-4. Verify previous work only if something seems off
+- Check plan for existing checkmarks; trust that completed work is done
+- Pick up from first unchecked item
+- Verify previous work only if something seems off
 
 ## Guidelines
 
 ### Code Quality
 
+- Read files fully before modifying them
 - Follow existing patterns in the codebase
 - Use meaningful names that reflect purpose
 - Add comments only for non-obvious decisions
 - Handle errors with specific exception types
+- Stay within planned scope; stop and ask if scope needs to expand
 
 ### Testing
 
-- Write tests alongside implementation, not after
+- Write tests alongside implementation, not after (never batch to the end)
 - Test edge cases, not just happy path
 - Follow existing test patterns in the codebase
 - Ensure tests actually assert meaningful behavior
-
-## Common Pitfalls to Avoid
-
-- ❌ Skipping tests to "save time"
-- ❌ Making changes outside planned scope
-- ❌ Ignoring failing tests and moving on
-- ❌ Not reading files fully before modifying
-- ❌ Implementing without understanding the goal
-- ❌ Batching all verification to the end
+- Never skip tests to "save time"; never ignore failing tests and move on

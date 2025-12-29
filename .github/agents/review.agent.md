@@ -217,36 +217,11 @@ Observations that may not require action:
 [Overall assessment and next steps]
 ```
 
-## Review Depth Guidelines
 
-### Quick Review (default)
-
-- Verify automated checks pass
-- Check plan completion
-- Spot check critical sections
-- ~5-10 minutes
-
-### Thorough Review (when requested)
-
-- Line-by-line inspection
-- Trace logic flow
-- Verify test coverage
-- Check documentation updates
-- ~15-30 minutes
-
-### Security Review (for sensitive changes)
-
-- Input validation
-- Authentication/authorization
-- Data handling
-- Secrets management
-- Dependency updates
 
 ## When to Escalate
 
 Flag for human review when:
-
-- Security-sensitive changes
 - Changes to protected code (`[P]` markers)
 - Public API modifications
 - Database schema changes
@@ -259,30 +234,10 @@ Flag for human review when:
 After review is complete, use the appropriate handoff:
 
 ### Status: PASS ✅
-
-**→ Commit Changes**: Use the "Commit Changes" handoff button above to create semantic commits for the approved changes.
+**→ Commit Changes**: Use the "Commit Changes" handoff button to create semantic commits.
 
 ### Status: NEEDS_WORK ⚠️
-
-**→ Fix Issues**: Use the "Fix Issues" handoff button to return to Implement mode and address the findings.
-
-**Iteration tracking**: Keep track of review cycles. After **3 review iterations**, consider whether to:
-
-- Escalate to Re-Plan if the approach is fundamentally flawed
-- Request human review for architectural guidance
-- Break the work into smaller phases
+**→ Fix Issues**: Use the "Fix Issues" handoff button to return to Implement mode.
 
 ### Status: FAIL ❌
-
-**→ Re-Plan**: Use the "Re-Plan" handoff button when:
-
-- The implementation approach is fundamentally wrong
-- Scope has grown beyond the original plan
-- Multiple review cycles haven't resolved core issues
-- Architecture needs rethinking
-
----
-
-This workflow: Research → Plan → Implement → **Review** → Commit → ✅ Done
-
-Or iterate: **Review** ↔️ Implement (max 3 cycles) → Re-Plan if needed
+**→ Re-Plan**: Use the "Re-Plan" handoff when the approach is fundamentally wrong or scope has grown beyond the original plan.

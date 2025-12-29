@@ -192,15 +192,11 @@ Use the Research Output Format below.
 - **Specific References**: Always include file paths and line numbers
 - **No Assumptions**: Note what's unclear rather than guessing
 - **Forward Context**: Capture information that won't be obvious later
-- **Quality of research directly affects plan quality**
 
 ## When to Ask for Clarification
 
 - The scope is ambiguous (multiple interpretations)
 - Need access to external resources (APIs, databases)
 - Question requires business/domain knowledge not in code
-- Multiple components could be the focus
 
-**→ Create a plan**: Use the "Create Plan" handoff button above, or say "Create a plan to [implement what was researched]"
-
-This guides users to the next phase: **Research** → **Plan** → Implement → Review
+**→ Create a plan**: Use the "Create Plan" handoff button, or say "Create a plan to [implement what was researched]"

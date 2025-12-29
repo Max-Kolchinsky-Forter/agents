@@ -106,8 +106,6 @@ Use `git push` or `git log` to review commits.
 
 ## Commit Message Format
 
-Follows the [Conventional Commits](https://www.conventionalcommits.org/) specification.
-
 ### Structure
 
 ```
@@ -117,25 +115,6 @@ Follows the [Conventional Commits](https://www.conventionalcommits.org/) specifi
 
 [optional footer(s)]
 ```
-
-**Required elements:**
-
-- **type**: The kind of change (see Commit Types below)
-- **description**: Short summary (≤50 chars recommended, ≤72 chars max)
-
-**Optional elements:**
-
-- **scope**: Section of codebase affected, e.g., `feat(parser):` or `fix(api):`
-- **body**: Additional context about the change. Free-form, can be multiple paragraphs. Start one blank line after description.
-- **footer(s)**: References to issues, breaking changes, etc. Start one blank line after body.
-
-**Guidelines:**
-
-- Keep description concise and imperative ("add" not "added" or "adds")
-- Body should explain _what_ and _why_, not _how_
-- Wrap body and footer at 72 characters
-- Use body for context that isn't obvious from code
-- Use `!` after type/scope to indicate breaking changes: `feat!:` or `feat(api)!:`
 
 ### Commit Types
 
@@ -150,27 +129,31 @@ Follows the [Conventional Commits](https://www.conventionalcommits.org/) specifi
 | `perf`     | Performance improvements                   |
 | `style`    | Formatting, missing semicolons, etc.       |
 
+### Guidelines
+
+- **Description**: ≤50 chars recommended (max 72), imperative mood ("add" not "added")
+- **Scope**: Optional, indicates section of codebase: `feat(auth):`, `fix(api):`
+- **Body**: Explain _what_ and _why_, not _how_. Wrap at 72 chars.
+- **Breaking changes**: Use `!` after type/scope: `feat!:` or `feat(api)!:`
+- **Footers**: References like `Refs: #123` or `BREAKING CHANGE: description`
+
 ### Examples
 
-**Simple commit:**
-
+**Simple:**
 ```
 docs: correct spelling of CHANGELOG
 ```
 
 **With scope and body:**
-
 ```
 feat(auth): add JWT token refresh logic
 
-Implements automatic token refresh with proper error handling
-for expired/invalid tokens.
+Implements automatic token refresh with proper error handling.
 
 Refs: #123
 ```
 
 **Breaking change:**
-
 ```
 feat!: change config file format
 
@@ -179,72 +162,15 @@ BREAKING CHANGE: `extends` key now used for extending other configs
 
 ## Logical Grouping Guidelines
 
-### Group Together
+**Group together:** Feature units, layer consistency, test + implementation, tightly coupled files
 
-- **Feature units**: All code for one complete feature
-- **Layer consistency**: Infrastructure changes separate from business logic
-- **Test + implementation**: Tests for a feature with the feature code
-- **Tightly coupled**: Files that depend on each other
+**Separate:** Independent features, infrastructure vs. logic, refactoring vs. features, major documentation
 
-### Separate Into Different Commits
-
-- **Independent features**: Separate user stories or capabilities
-- **Infrastructure vs. logic**: Config changes vs. code changes
-- **Refactoring vs. features**: Don't mix cleanup with new functionality
-- **Documentation**: Major doc updates can be separate
-
-### Example
-
-**Good - logical separation:**
-
-```
-Commit 1: feat(auth): add JWT authentication middleware
-  - src/auth/jwt.py, src/auth/middleware.py, tests/test_auth.py
-
-Commit 2: docs: add authentication setup guide
-  - docs/authentication.md, README.md
-```
-
-**Avoid - mixing concerns:**
-
-```
-Commit 1: misc updates
-  - src/auth/jwt.py, docs/authentication.md, src/unrelated.py  # Unrelated change
-```
-
-## When to Use Multiple Commits
-
-Use multiple commits when:
-
-- Changes span multiple features or concerns
-- You can tell a story through commit history
-- Different changes have different purposes
-- Changes could be reviewed/reverted independently
-
-Use a single commit when:
-
-- All changes are part of one atomic feature
-- Files are tightly coupled and don't make sense separately
-- The change is small and focused
-
-## Quality Checklist
-
-Before committing, verify:
-
-- [ ] **Follows Conventional Commits format**: `type(scope): description`
-- [ ] **Type is valid**: feat, fix, docs, test, refactor, chore, perf, style, etc.
-- [ ] **Description ≤50 chars** (recommended) or ≤72 chars (max)
-- [ ] **Description uses imperative mood** ("add" not "added")
-- [ ] **Body wraps at 72 characters** (if present)
-- [ ] **Body explains why, not how** (how is in the code)
-- [ ] **Breaking changes marked** with `!` or `BREAKING CHANGE:` footer
-- [ ] **Files in commit are logically related**
-- [ ] **Commit is atomic** (could be reverted independently)
-- [ ] **Message is clear** to someone without full context
+Use multiple commits when changes span multiple concerns or could be reviewed/reverted independently.
+Use a single commit when all changes are part of one atomic feature.
 
 ## When to Ask
 
 - Unsure whether to split or combine commits
 - Multiple valid grouping strategies
 - Changes span many concerns and boundaries are unclear
-- User has specific commit conventions to follow

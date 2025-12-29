@@ -158,145 +158,62 @@ Please review and let me know:
 ## Implementation Plan: [Feature Name]
 
 ### Goal
-
 [Single sentence - what success looks like]
 
 ### Current State Analysis
-
-[What exists now, key constraints discovered]
-
-- [Finding with file:line reference]
-- [Pattern to follow]
+[What exists now, key constraints discovered with file:line references]
 
 ### What We're NOT Doing
-
 [Explicitly list out-of-scope items]
 
 ### Prerequisites
-
 - [ ] [What must be true before starting]
-- [ ] [Required access, tools, dependencies]
 
 ---
 
 ## Phase 1: [Descriptive Name]
 
 ### Overview
-
 [What this phase accomplishes]
 
 ### Changes Required
-
 #### 1. [Component/File]
-
 **File**: `path/to/file.ext`
 **Changes**: [Summary]
 
 ### Success Criteria
-
-#### Automated Verification:
-
-- [ ] Tests pass: `pytest tests/test_file.py`
-- [ ] Type check passes: `mypy src/`
-- [ ] Lint passes: `ruff check .`
-
-#### Manual Verification:
-
-- [ ] [Behavior to verify manually]
-- [ ] [Edge case to test]
-
----
-
-## Phase 2: [Descriptive Name]
-
-[Same structure...]
+**Automated**: `pytest tests/`, `mypy src/`, `ruff check .`
+**Manual**: [Behavior to verify]
 
 ---
 
 ## Testing Strategy
 
-**REQUIRED SECTION** - Specify testing approach based on project maturity:
-
 ### Project Maturity Level
-
 [Established Production | Active Development | Prototype]
 
 ### Unit Tests
+- [Specific functions to test]
+- [Edge cases: null, empty, boundaries]
+- Coverage target: [80% production | 70% active dev | smoke tests prototype]
 
-**Required:**
-
-- [Specific functions/methods to test]
-- [Key edge cases: null, empty, boundaries]
-- [Error scenarios]
-
-**Coverage target:** [80% for production | 70% for active dev | smoke tests for prototype]
-
-### Integration Tests
-
-**Required:**
-
+### Integration/Manual Tests
 - [End-to-end scenarios]
-- [Critical user paths]
-- [External service interactions]
-
-### Manual Testing
-
-- [ ] [Manual verification step 1]
-- [ ] [Manual verification step 2]
-
-### Test Skipping Justification
-
-If tests are being skipped, document:
-
-- **Why:** [Reason for skipping]
-- **Risk:** [What could go wrong]
-- **Mitigation:** [How risk is reduced]
+- [Manual verification steps]
 
 ---
 
 ## Rollback Plan
-
 [How to undo if something goes wrong]
-
-## References
-
-- [Related file: `path/to/file.py:45`]
-- [Similar implementation: `other/file.py`]
 ```
 
 ## Guidelines
 
-### Be Skeptical
-
-- Question vague requirements
-- Identify potential issues early
-- Ask "why" and "what about"
-- Don't assume - verify with code
-
-### Be Interactive
-
-- Don't write the full plan in one shot
-- Get buy-in at each major step
-- Allow course corrections
-- Work collaboratively
-
-### Be Thorough
-
-- Read all context files COMPLETELY
-- Research actual code patterns
-- Include specific file paths and line numbers
-- Write measurable success criteria
-
-### Be Practical
-
-- Focus on incremental, testable changes
-- Consider migration and rollback
-- Think about edge cases
-- Keep phases independently verifiable
+- **Be Skeptical**: Question vague requirements, identify issues early, verify with code
+- **Be Interactive**: Get buy-in at each step, allow course corrections
+- **Be Thorough**: Read context files completely, include specific file paths and line numbers
+- **Be Practical**: Focus on incremental, testable changes; consider rollback
 
 ## No Open Questions in Final Plan
 
-- If you encounter open questions during planning, STOP
-- Research or ask for clarification immediately
-- Do NOT write the plan with unresolved questions
-- The final plan must be complete and actionable
+If you encounter open questions during planning, STOP and ask for clarification. The final plan must be complete and actionable.
