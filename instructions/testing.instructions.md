@@ -171,3 +171,49 @@ Before considering tests complete:
 - [ ] Test names describe the scenario
 - [ ] No dependencies between test order
 - [ ] Reasonable execution time (< 100ms for unit tests)
+
+## Common Anti-Patterns
+
+### Test-After Syndrome
+
+Writing tests after implementation often results in tests that verify the code works as written, not as intended. Write tests first or alongside—they shape better APIs.
+
+### Over-Mocking
+
+```python
+# Bad - testing the mock, not the code
+@patch("myapp.db.query")
+@patch("myapp.cache.get")
+@patch("myapp.validator.check")
+def test_process(mock_check, mock_cache, mock_db):
+    mock_db.return_value = {"id": 1}
+    mock_cache.return_value = None
+    mock_check.return_value = True
+    result = process(1)  # What are we even testing?
+```
+
+Mock at boundaries (external APIs, databases), not internal functions. If you must mock everything, the design is too coupled.
+
+### Testing Implementation, Not Behavior
+
+```python
+# Bad - breaks when implementation changes
+def test_user_cache():
+    user = get_user(1)
+    assert cache._internal_store["user:1"] == user  # Testing internals
+
+# Good - tests observable behavior
+def test_user_cached_on_second_call():
+    get_user(1)  # First call
+    with patch("myapp.db.query") as mock:
+        get_user(1)  # Second call
+        mock.assert_not_called()  # Behavior: no DB hit
+```
+
+### Ignoring Flaky Tests
+
+A flaky test is worse than no test—it erodes trust in the entire suite. Fix immediately by:
+
+- Adding proper waits/synchronization for async code
+- Isolating shared state between tests
+- Using deterministic test data (no `random()` without seeds)
