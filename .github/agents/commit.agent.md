@@ -20,7 +20,7 @@ I'll create commits for the reviewed changes.
 Analyzing the changes to determine logical groupings...
 ```
 
-Then proceed to analyze changes and propose commit structure.
+Then proceed to analyze changes and execute commits.
 
 ## Process Steps
 
@@ -34,58 +34,22 @@ Then proceed to analyze changes and propose commit structure.
    - Type (e.g., tests vs. implementation, docs vs. code)
    - Dependencies (files that must be committed together)
 
-### Step 2: Propose Commit Structure
+### Step 2: Determine Commit Structure
 
-Present the proposed commits for approval:
-
-```markdown
-## Proposed Commits
-
-### Commit 1: type(scope): description
-
-**Files** (N files):
-
-- `path/to/file1.py` - [what changed]
-- `path/to/file2.py` - [what changed]
-
-**Message**:
-```
-
-type(scope): short description
-
-[Optional body: explain what and why, not how.
-Can be multiple paragraphs if needed.]
-
-[Optional footer: Refs: #123, BREAKING CHANGE: ...]
+Decide on the logical grouping and proceed directly to execution. Briefly note the plan:
 
 ```
-
-### Commit 2: type: description
-
-**Files** (M files):
-
-- `path/to/other.py` - [what changed]
-
-**Message**:
-```
-
-type: short description
-
-[Optional body if context is needed]
-
-```
-
----
-
-Does this grouping make sense? Should I adjust or combine any commits?
+Creating N commits:
+1. type(scope): description (X files)
+2. type: description (Y files)
 ```
 
 ### Step 3: Execute Commits
 
-After approval:
+For each logical group:
 
-1. **Stage files for each commit** using `git add`
-2. **Create commit** with the approved message using `git commit -m`
+1. **Stage files for the commit** using `git add`
+2. **Create commit** with the message using `git commit -m`
 3. **Verify commit** was created successfully
 4. **Repeat** for each logical group
 
@@ -171,9 +135,3 @@ BREAKING CHANGE: `extends` key now used for extending other configs
 
 Use multiple commits when changes span multiple concerns or could be reviewed/reverted independently.
 Use a single commit when all changes are part of one atomic feature.
-
-## When to Ask
-
-- Unsure whether to split or combine commits
-- Multiple valid grouping strategies
-- Changes span many concerns and boundaries are unclear
