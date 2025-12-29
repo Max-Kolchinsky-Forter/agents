@@ -208,6 +208,7 @@ After completing each phase, note files changed, tests added/passing, verificati
 ## Resuming Work
 
 If picking up from previous work:
+
 - Check plan for existing checkmarks; trust that completed work is done
 - Pick up from first unchecked item
 - Verify previous work only if something seems off

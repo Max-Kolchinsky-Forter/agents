@@ -140,11 +140,13 @@ Use `git push` or `git log` to review commits.
 ### Examples
 
 **Simple:**
+
 ```
 docs: correct spelling of CHANGELOG
 ```
 
 **With scope and body:**
+
 ```
 feat(auth): add JWT token refresh logic
 
@@ -154,6 +156,7 @@ Refs: #123
 ```
 
 **Breaking change:**
+
 ```
 feat!: change config file format
 

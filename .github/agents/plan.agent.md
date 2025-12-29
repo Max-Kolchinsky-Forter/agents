@@ -158,15 +158,19 @@ Please review and let me know:
 ## Implementation Plan: [Feature Name]
 
 ### Goal
+
 [Single sentence - what success looks like]
 
 ### Current State Analysis
+
 [What exists now, key constraints discovered with file:line references]
 
 ### What We're NOT Doing
+
 [Explicitly list out-of-scope items]
 
 ### Prerequisites
+
 - [ ] [What must be true before starting]
 
 ---
@@ -174,14 +178,18 @@ Please review and let me know:
 ## Phase 1: [Descriptive Name]
 
 ### Overview
+
 [What this phase accomplishes]
 
 ### Changes Required
+
 #### 1. [Component/File]
+
 **File**: `path/to/file.ext`
 **Changes**: [Summary]
 
 ### Success Criteria
+
 **Automated**: `pytest tests/`, `mypy src/`, `ruff check .`
 **Manual**: [Behavior to verify]
 
@@ -190,20 +198,24 @@ Please review and let me know:
 ## Testing Strategy
 
 ### Project Maturity Level
+
 [Established Production | Active Development | Prototype]
 
 ### Unit Tests
+
 - [Specific functions to test]
 - [Edge cases: null, empty, boundaries]
 - Coverage target: [80% production | 70% active dev | smoke tests prototype]
 
 ### Integration/Manual Tests
+
 - [End-to-end scenarios]
 - [Manual verification steps]
 
 ---
 
 ## Rollback Plan
+
 [How to undo if something goes wrong]
 ```
 

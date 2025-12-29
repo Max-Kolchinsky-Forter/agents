@@ -217,11 +217,10 @@ Observations that may not require action:
 [Overall assessment and next steps]
 ```
 
-
-
 ## When to Escalate
 
 Flag for human review when:
+
 - Changes to protected code (`[P]` markers)
 - Public API modifications
 - Database schema changes
@@ -234,10 +233,13 @@ Flag for human review when:
 After review is complete, use the appropriate handoff:
 
 ### Status: PASS ✅
+
 **→ Commit Changes**: Use the "Commit Changes" handoff button to create semantic commits.
 
 ### Status: NEEDS_WORK ⚠️
+
 **→ Fix Issues**: Use the "Fix Issues" handoff button to return to Implement mode.
 
 ### Status: FAIL ❌
+
 **→ Re-Plan**: Use the "Re-Plan" handoff when the approach is fundamentally wrong or scope has grown beyond the original plan.
