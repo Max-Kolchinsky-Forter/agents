@@ -28,3 +28,5 @@ Add URLs to the list above. Format after research:
 - [x] [spec-driven-development](https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/) → [RDR-001](docs/research/RDR-001-spec-driven.md)
 - [x] [copilot-context-cortex](https://github.com/muaz742/copilot-context-cortex) → [RDR-002](docs/research/RDR-002-context-cortex.md)
 - [x] [feature-dev-plugin](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/feature-dev) → [RDR-003](docs/research/RDR-003-feature-dev.md)
+- [x] [superpowers](https://github.com/obra/superpowers) → [RDR-004](docs/research/RDR-004-superpowers.md)
+- [ ] https://github.com/mitsuhiko/agent-stuff/blob/main/skills/improve-skill/SKILL.md
