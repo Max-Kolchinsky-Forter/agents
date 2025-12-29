@@ -1,18 +1,47 @@
-# Agentic Coding Framework for GitHub Copilot
+# Agentic Coding Framework
 
-**4 Custom Agents** for the core workflow (with enforced tool access and handoffs) plus **6 Agent Skills** that auto-activate based on your prompts.
+A curated set of **agents**, **skills**, and **instructions** for AI-assisted coding—synthesized from multiple frameworks into something minimal and actually useful.
+
+## TL;DR
+
+Clone the repo, run `./install.sh`, and get:
+
+- **5 Agents** (Research → Plan → Implement → Review → Commit) with enforced tool access, preferred models, and handoff buttons between phases
+- **6 Skills** that auto-activate based on your prompts (debug, tech-debt, architecture, mentor, janitor, critic)
+- **5 Instructions** files with coding standards that load automatically based on file type
+
+Works with **VS Code Copilot** and **Claude Code**. Use `/agent` or `/skills` in CLI, or the Chat menu in VS Code.
 
 ## Quick Start
 
 ```bash
+git clone https://github.com/mcouthon/agents.git
+cd agents
 ./install.sh
 ```
 
-This installs agents and skills globally. Agents are immediately available in VS Code Copilot and Claude Code.
+> **Model recommendation:** Claude Opus 4.5 is a game changer for heavy lifting. When Sonnet struggles, Opus delivers.
+
+## Why This Exists
+
+I've been reading up on AI coding frameworks that people have been sharing, and decided to roll several of them into something I'd actually understand and be happy with. The main sources were:
+
+- [12 Factor Agents](./docs/sources/12-factor-agents/)
+- [CursorRIPER](./docs/sources/cursorriper/)
+- [HumanLayer's ACE Framework](./docs/sources/humanlayer/)
+- [Awesome Copilot](./docs/sources/awesome-copilot/)
+
+See [docs/synthesis/prevailing-wisdom.md](./docs/synthesis/prevailing-wisdom.md) for the synthesized principles, or [docs/synthesis/framework-comparison.md](./docs/synthesis/framework-comparison.md) for analysis of the source material.
+
+## Key Insight: Human-in-the-Loop
+
+**The highest leverage point for humans is at the end of research and the beginning of the plan.**
+
+A human can skim 30 seconds and provide a sentence of feedback that could save the agent hours of incorrect implementation. The workflow is designed around this—Research hands off to Plan, and you review before Implement begins.
 
 ## The Core Workflow (Custom Agents)
 
-For substantial changes, use the **agent picker dropdown** to select workflow phases:
+For substantial changes, use the **agent picker dropdown** (or `/agent` in CLI) to select workflow phases:
 
 ```
 Research → Plan → Implement → Review → Commit
@@ -32,7 +61,7 @@ Research → Plan → Implement → Review → Commit
 
 ## Utility Skills (Auto-Activate)
 
-These skills activate automatically based on your prompts:
+Skills provide particular capabilities without needing a full agent—they serve a narrow purpose. Use `/skills` in CLI, or trust VS Code to call them automatically based on your prompts:
 
 | You Say                     | Skill Activated |
 | --------------------------- | --------------- |
@@ -68,8 +97,7 @@ Use these advisory markers in code comments. Skills will respect them:
 
 ## Instructions (File-Type Standards)
 
-The `instructions/` folder contains file-type specific coding standards.
-These are automatically installed to the VS Code prompts folder by `./install.sh`.
+These are minimal files meant to always be part of the context—common ground rules and recommendations (e.g., what to do if the agent is stuck). They load automatically based on file patterns.
 
 | File                       | Applies To       | Purpose                           |
 | -------------------------- | ---------------- | --------------------------------- |
