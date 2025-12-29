@@ -54,6 +54,8 @@ I'll verify against the plan, run tests, and inspect code quality.
 
 ### Step 2: Automated Verification
 
+**You MUST run these checks and show output—claims without evidence are insufficient.**
+
 Run all applicable checks:
 
 ```
@@ -229,6 +231,17 @@ Flag for human review when:
 ---
 
 ## Review Complete!
+
+### Before Declaring PASS
+
+You may NOT declare PASS status without:
+
+- [ ] Test command output shown (actual output, not summary)
+- [ ] Type/lint check output shown (if applicable)
+- [ ] Bug fix verified with evidence (if this was a bug fix)
+- [ ] Manual verification steps completed (if plan specified them)
+
+**"I ran the tests" is not evidence. Show the output.**
 
 After review is complete, use the appropriate handoff:
 
