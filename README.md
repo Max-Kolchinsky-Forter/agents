@@ -44,18 +44,20 @@ A human can skim 30 seconds and provide a sentence of feedback that could save t
 For substantial changes, use the **agent picker dropdown** (or `/agent` in CLI) to select workflow phases:
 
 ```
-Research → Plan → Implement → Review → Commit
-                      ↑          ↓
-                      └─(fix)────┘ (max 3 iterations)
+Research → Plan → Implement → Review → Kotlin Verify → Commit → Reflect
+                      ↑          ↓            ↓
+                      └─(fix)────┘            └─(optional, for Kotlin)
 ```
 
-| Agent       | Purpose                       | Tool Access | Handoff To                                      |
-| ----------- | ----------------------------- | ----------- | ----------------------------------------------- |
-| `Research`  | Deep codebase exploration     | Read-only   | → Plan                                          |
-| `Plan`      | Create implementation plans   | Read-only   | → Implement                                     |
-| `Implement` | Execute planned changes       | Full access | → Review                                        |
-| `Review`    | Verify implementation quality | Read + Test | → Commit (pass) / Implement (fix) / Plan (fail) |
-| `Commit`    | Create semantic commits       | Git + Read  | ✅ Done                                         |
+| Agent          | Purpose                          | Tool Access    | Handoff To                                      |
+| -------------- | -------------------------------- | -------------- | ----------------------------------------------- |
+| `Research`     | Deep codebase exploration        | Read-only      | → Plan                                          |
+| `Plan`         | Create implementation plans      | Read-only      | → Implement                                     |
+| `Implement`    | Execute planned changes          | Full access    | → Review                                        |
+| `Review`       | Verify implementation quality    | Read + Test    | → Kotlin Verify (Kotlin) / Commit (pass) / Implement (fix) / Plan (fail) |
+| `Kotlin Verify`| Verify Kotlin best practices     | Read + Test    | → Review (for general) / Implement (fix)        |
+| `Commit`       | Create semantic commits          | Git + Read     | → Reflect                                       |
+| `Reflect`      | Capture learnings, update agents | Read + Edit    | ✅ Done                                         |
 
 **Why agents?** Each phase has **enforced tool restrictions** (Plan can't accidentally edit code) and **handoff buttons** to guide you to the next step.
 
