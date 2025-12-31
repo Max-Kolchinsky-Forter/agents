@@ -1,16 +1,7 @@
 ---
 name: Implement
 description: Execute implementation plans with full code access. Use for implementing planned features, executing technical plans, building what was designed, or making planned changes.
-tools:
-  [
-    "execute/runInTerminal",
-    "execute/runTests",
-    "read/problems",
-    "read/readFile",
-    "edit/editFiles",
-    "search",
-    "web",
-  ]
+tools: ["Bash", "Read", "Write", "Edit", "Glob", "Grep", "WebFetch"]
 model: Claude Sonnet 4.5
 handoffs:
   - label: Review Changes

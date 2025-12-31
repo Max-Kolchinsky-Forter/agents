@@ -1,7 +1,7 @@
 ---
 name: Review
 description: Verify implementation quality with read and test access. Use for reviewing changes, checking code quality, verifying implementations, or auditing work before merge.
-tools: ["codebase", "search", "runTests", "problems", "usages", "changes"]
+tools: ["Read", "Glob", "Grep", "Bash"]
 model: Claude Sonnet 4.5
 handoffs:
   - label: Commit Changes

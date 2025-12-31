@@ -1,16 +1,7 @@
 ---
 name: Research
 description: Deep codebase exploration with read-only access. Use for understanding how code works, tracing data flow, exploring architecture, or investigating implementations.
-tools:
-  [
-    "codebase",
-    "search",
-    "fetch",
-    "githubRepo",
-    "usages",
-    "problems",
-    "findTestFiles",
-  ]
+tools: ["Read", "Glob", "Grep", "WebFetch"]
 model: Claude Opus 4.5
 handoffs:
   - label: Create Plan

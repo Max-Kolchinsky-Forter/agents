@@ -1,7 +1,7 @@
 ---
 name: Commit
 description: Create meaningful commits with logical file grouping. Use after implementation is reviewed and approved to commit changes with semantic, well-structured commit messages.
-tools: ["codebase", "search", "changes", "runInTerminal"]
+tools: ["Read", "Glob", "Grep", "Bash"]
 model: Claude Sonnet 4.5
 handoffs: []
 ---
